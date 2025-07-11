@@ -12,12 +12,22 @@ import CartSidebar from './components/cart/CartSidebar';
 import HomePage from './pages/HomePage';
 import ProductsPage from './pages/ProductsPage';
 import ProductDetailPage from './pages/ProductDetailPage';
+import SearchResultsPage from './pages/SearchResultsPage';
+import CategoriesPage from './pages/CategoriesPage';
+import CartPage from './pages/CartPage';
+import CheckoutPage from './pages/CheckoutPage';
+import OrderConfirmationPage from './pages/OrderConfirmationPage';
+import OrdersPage from './pages/OrdersPage';
+import ProfilePage from './pages/ProfilePage';
 import LoginPage from './pages/auth/LoginPage';
 import RegisterPage from './pages/auth/RegisterPage';
 
 // Admin Pages
 import AdminLayout from './pages/admin/AdminLayout';
 import AdminDashboard from './pages/admin/AdminDashboard';
+import ProductManagementPage from './pages/admin/ProductManagementPage';
+import CategoryManagementPage from './pages/admin/CategoryManagementPage';
+import OrderManagementPage from './pages/admin/OrderManagementPage';
 
 const App: React.FC = () => {
   const { setProducts, setCategories } = useProductStore();
@@ -39,9 +49,9 @@ const App: React.FC = () => {
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminLayout />}>
             <Route index element={<AdminDashboard />} />
-            <Route path="products" element={<div>Products Management</div>} />
-            <Route path="categories" element={<div>Categories Management</div>} />
-            <Route path="orders" element={<div>Orders Management</div>} />
+            <Route path="products" element={<ProductManagementPage />} />
+            <Route path="categories" element={<CategoryManagementPage />} />
+            <Route path="orders" element={<OrderManagementPage />} />
             <Route path="users" element={<div>Users Management</div>} />
             <Route path="settings" element={<div>Settings</div>} />
           </Route>
@@ -55,12 +65,13 @@ const App: React.FC = () => {
                   <Route path="/" element={<HomePage />} />
                   <Route path="/products" element={<ProductsPage />} />
                   <Route path="/product/:id" element={<ProductDetailPage />} />
-                  <Route path="/categories" element={<div>Categories Page</div>} />
-                  <Route path="/search" element={<div>Search Results</div>} />
-                  <Route path="/cart" element={<div>Cart Page</div>} />
-                  <Route path="/checkout" element={<div>Checkout Page</div>} />
-                  <Route path="/profile" element={<div>Profile Page</div>} />
-                  <Route path="/orders" element={<div>Orders Page</div>} />
+                  <Route path="/categories" element={<CategoriesPage />} />
+                  <Route path="/search" element={<SearchResultsPage />} />
+                  <Route path="/cart" element={<CartPage />} />
+                  <Route path="/checkout" element={<CheckoutPage />} />
+                  <Route path="/order-confirmation" element={<OrderConfirmationPage />} />
+                  <Route path="/profile" element={<ProfilePage />} />
+                  <Route path="/orders" element={<OrdersPage />} />
                 </Routes>
               </main>
               <Footer />
