@@ -10,7 +10,8 @@ import {
   Zap,
   LogOut,
   Settings,
-  Package
+  Package,
+  Truck
 } from 'lucide-react';
 import { useAuthStore, useCartStore } from '../../store';
 import Button from '../ui/Button';
