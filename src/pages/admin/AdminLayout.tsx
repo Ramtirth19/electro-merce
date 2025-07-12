@@ -57,7 +57,7 @@ const AdminLayout: React.FC = () => {
           {/* Navigation */}
           <nav className="flex-1 px-4 py-6 space-y-2">
             {navigation.map((item) => (
-              {item.external ? (
+              item.external ? (
                 <a
                   key={item.name}
                   href={item.href}
@@ -81,7 +81,7 @@ const AdminLayout: React.FC = () => {
                   <item.icon className="w-5 h-5" />
                   <span className="font-medium">{item.name}</span>
                 </Link>
-              )}
+              )
             ))}
           </nav>
 
