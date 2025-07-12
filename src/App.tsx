@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useProductStore } from './store';
 import { mockProducts, mockCategories } from './data/mockData';
+import ScrollToTop from './components/ui/ScrollToTop';
 
 // Layout Components
 import Header from './components/layout/Header';
@@ -19,6 +20,7 @@ import CheckoutPage from './pages/CheckoutPage';
 import OrderConfirmationPage from './pages/OrderConfirmationPage';
 import OrdersPage from './pages/OrdersPage';
 import ProfilePage from './pages/ProfilePage';
+import OrderTrackingPage from './pages/OrderTrackingPage';
 import LoginPage from './pages/auth/LoginPage';
 import RegisterPage from './pages/auth/RegisterPage';
 
@@ -28,6 +30,8 @@ import AdminDashboard from './pages/admin/AdminDashboard';
 import ProductManagementPage from './pages/admin/ProductManagementPage';
 import CategoryManagementPage from './pages/admin/CategoryManagementPage';
 import OrderManagementPage from './pages/admin/OrderManagementPage';
+import UserManagementPage from './pages/admin/UserManagementPage';
+import SettingsPage from './pages/admin/SettingsPage';
 
 const App: React.FC = () => {
   const { setProducts, setCategories } = useProductStore();
@@ -40,6 +44,7 @@ const App: React.FC = () => {
 
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen bg-white">
         <Routes>
           {/* Auth Routes */}
@@ -52,8 +57,8 @@ const App: React.FC = () => {
             <Route path="products" element={<ProductManagementPage />} />
             <Route path="categories" element={<CategoryManagementPage />} />
             <Route path="orders" element={<OrderManagementPage />} />
-            <Route path="users" element={<div>Users Management</div>} />
-            <Route path="settings" element={<div>Settings</div>} />
+            <Route path="users" element={<UserManagementPage />} />
+            <Route path="settings" element={<SettingsPage />} />
           </Route>
 
           {/* Public Routes */}
@@ -72,6 +77,7 @@ const App: React.FC = () => {
                   <Route path="/order-confirmation" element={<OrderConfirmationPage />} />
                   <Route path="/profile" element={<ProfilePage />} />
                   <Route path="/orders" element={<OrdersPage />} />
+                  <Route path="/track" element={<OrderTrackingPage />} />
                 </Routes>
               </main>
               <Footer />
