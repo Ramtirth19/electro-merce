@@ -26,10 +26,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
     : 0;
 
   return (
-    <Link to={`/product/${product.id}`}>
-      <Card hover className="group overflow-hidden">
+    <Link to={`/product/${product.id}`} className="block h-full">
+      <Card hover className="group overflow-hidden h-full flex flex-col">
         <div className="relative">
-          <div className="aspect-square overflow-hidden">
+          <div className="aspect-square overflow-hidden bg-gray-100">
             <img
               src={product.images[0]}
               alt={product.name}
@@ -57,6 +57,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               className="p-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:bg-white transition-colors"
+              onClick={(e) => e.preventDefault()}
             >
               <Heart className="w-4 h-4 text-gray-600" />
             </motion.button>
@@ -64,6 +65,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               className="p-2 bg-white/90 backdrop-blur-sm rounded-full shadow-lg hover:bg-white transition-colors"
+              onClick={(e) => e.preventDefault()}
             >
               <Eye className="w-4 h-4 text-gray-600" />
             </motion.button>
@@ -77,10 +79,10 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           )}
         </div>
 
-        <div className="p-4 space-y-3">
+        <div className="p-4 space-y-3 flex-1 flex flex-col">
           {/* Brand & Condition */}
           <div className="flex items-center justify-between">
-            <span className="text-sm text-gray-500 font-medium">
+            <span className="text-sm text-gray-500 font-medium truncate">
               {product.brand}
             </span>
             <Badge 
@@ -93,7 +95,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           </div>
 
           {/* Product Name */}
-          <h3 className="font-semibold text-gray-900 line-clamp-2 group-hover:text-primary-600 transition-colors">
+          <h3 className="font-semibold text-gray-900 line-clamp-2 group-hover:text-primary-600 transition-colors flex-1">
             {product.name}
           </h3>
 
@@ -132,7 +134,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
           <Button
             onClick={handleAddToCart}
             disabled={!product.inStock}
-            className="w-full"
+            className="w-full mt-auto"
             size="sm"
           >
             <ShoppingCart className="w-4 h-4 mr-2" />

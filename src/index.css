@@ -29,6 +29,19 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
   }
+
+  /* Responsive utilities */
+  .aspect-square {
+    aspect-ratio: 1 / 1;
+  }
+
+  .aspect-video {
+    aspect-ratio: 16 / 9;
+  }
+
+  .aspect-4-3 {
+    aspect-ratio: 4 / 3;
+  }
 }
 
 /* Custom scrollbar */

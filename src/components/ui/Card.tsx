@@ -22,7 +22,7 @@ const Card: React.FC<CardProps> = ({
     : 'bg-white shadow-lg border border-gray-100';
     
   const hoverClasses = hover
-    ? 'hover:shadow-xl hover:scale-105 cursor-pointer'
+    ? 'hover:shadow-xl hover:scale-[1.02] cursor-pointer'
     : '';
 
   return (
